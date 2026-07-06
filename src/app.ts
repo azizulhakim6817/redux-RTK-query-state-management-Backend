@@ -5,14 +5,13 @@ const app = express();
 
 //middeware---------------------
 app.use(
-  cors({ origin: "https://reduxrtkclient.vercel.app", credentials: true }),
+  cors({
+    origin: ["http://localhost:5173", "https://reduxrtkclient.vercel.app"],
+    credentials: true,
+  }),
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Home");
-});
 
 app.use("/api", router);
 export default app;
